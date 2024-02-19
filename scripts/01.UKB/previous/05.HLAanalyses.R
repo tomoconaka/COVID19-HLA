@@ -9,10 +9,13 @@ colnames(pc) <- c("ID", paste0("PC",1:20))
 
 couples <- couples %>% inner_join(pc, by=c("f.eid" = "ID"))
 death_data <- fread("/scratch/richards/tomoko.nakanishi/DATA/UKB/death_20210930.txt.gz")
-death_data <- death_data %>% filter(as.Date(date_of_death, format="%d/%m/%Y") < as.Date("2020-01-13"))
-couples <- couples %>% filter(!(f.eid %in% death_data$eid))
 couples <- couples %>% group_by(uniqueCode) %>%
   filter(length(f.eid) == 2) %>% ungroup()
+
+saveRDS(couples, file="couples_step4_WB.rds")
+
+write.table(cbind(couples$f.eid, couples$f.eid), file="WB.couples", sep="\t", quote=F, col.names = F, row.names = F)
+
 
 ## two digits
 couples <- couples %>% group_by(f.eid) %>% 
@@ -56,16 +59,6 @@ couples <- couples %>% group_by(uniqueCode) %>%
            abs(PC8[1] - PC8[2])^2 + abs(PC8[1] - PC8[2])^2 + 
            abs(PC9[1] - PC9[2])^2 + abs(PC9[1] - PC9[2])^2),
          age_diff = abs(f.21022.0.0[1]- f.21022.0.0[2])) %>% ungroup()
-
-
-# couples <- couples %>% group_by(uniqueCode) %>% 
-#   mutate(HLAAmatch = length(intersect(unlist(HLAA[1]),unlist(HLAA[2]))), 
-#          HLABmatch = length(intersect(unlist(HLAB[1]),unlist(HLAB[2]))),
-#          HLACmatch = length(intersect(unlist(HLAC[1]),unlist(HLAC[2]))),
-#          HLADRB1match = length(intersect(unlist(HLADRB1[1]),unlist(HLADRB1[2]))),
-#          HLADQA1match = length(intersect(unlist(HLADQA1[1]),unlist(HLADQA1[2]))),
-#          HLADQB1match = length(intersect(unlist(HLADQB1[1]),unlist(HLADQB1[2]))))
-# 
 
 couples <- couples %>% mutate(outcome = case_when(coinfection == TRUE ~ 1,
                                           TRUE ~ 0))
@@ -248,4 +241,5 @@ V <- U*matrix(vi)%*%t(matrix(vi))
 metaresult <- summary(rma.mv(yi,V))
 
 save(tab3Mat, out, M, metaresult, file = "supertypeHLA1.Rdata")
+
 
