@@ -5,7 +5,7 @@
 
 
 Participants were assigned to couple pairs on the basis of a shared household identifier. 
-Make a unique “couple code” representing “a couple” using following key variables.
+* Make a unique “couple code” representing “a couple” using following key variables.
 1) Home location at assessment (rounded east/north co-ordinate)  i.e 367000 and 437000
 2) Assessment centre
 3) Type of accommodation lived in
@@ -13,10 +13,12 @@ Make a unique “couple code” representing “a couple” using following key 
 5) Length of time at current address
 6) Number in household
 7) Number of vehicles in household
+only two
 
-* who reported living with a husband, wife, or partner were selected. 
+* who reported living with a husband, wife, or partner were selected.
+* If more than two individuals shared identical information across all variables, these individuals were excluded from analysis. 
 
-These criteria is based on [ref]([https://www.nature.com/articles/s41380-019-0607-x](https://www.nature.com/articles/s41467-019-12424-x#Sec12)) code to run this step is 
+These criteria is based on [ref](https://www.nature.com/articles/s41467-019-12424-x#Sec12) 
 
 ### 2. Identifying pairs with at least one infected with COVID-19 before Jan 2021. `03.pairs_step23.R`
 
