@@ -1,7 +1,8 @@
 # COVID19-HLA
 
 ## Analysis steps
-### 1. define pairs according to the following criteria.
+### 1. define pairs according to the following criteria. `02.pairs_step1.R`.
+
 
 Participants were assigned to couple pairs on the basis of a shared household identifier. 
 Make a unique “couple code” representing “a couple” using following key variables.
@@ -15,10 +16,9 @@ Make a unique “couple code” representing “a couple” using following key 
 
 * who reported living with a husband, wife, or partner were selected. 
 
-These criteria is based on [ref]([https://www.nature.com/articles/s41380-019-0607-x](https://www.nature.com/articles/s41467-019-12424-x#Sec12)) code to run this step is `02.pairs_step1.R`.
+These criteria is based on [ref]([https://www.nature.com/articles/s41380-019-0607-x](https://www.nature.com/articles/s41467-019-12424-x#Sec12)) code to run this step is 
 
-
-### 2. Identifying pairs with at least one infected with COVID-19 before Jan 2021. 
+### 2. Identifying pairs with at least one infected with COVID-19 before Jan 2021. `03.pairs_step23.R`
 
 * COVID-19 PCR tests date before Dec 31 2020 were considered in the analysis. (To include only those who were unvaccinated)
 * If both individuals in the pairs were infected, `interval` was calculated based on the date of COVID-19 PCR tests.
