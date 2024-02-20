@@ -4,7 +4,7 @@
 ### 1. define pairs according to the following criteria.
 
 Participants were assigned to couple pairs on the basis of a shared household identifier. 
-Make a unique “couple code” representing “a couple” using following key variables.
+Make a unique “couple code” representing “a couple” using following key variables.
 1) Home location at assessment (rounded east/north co-ordinate)  i.e 367000 and 437000
 2) Assessment centre
 3) Type of accommodation lived in
