@@ -23,7 +23,8 @@ These criteria is based on [ref](https://www.nature.com/articles/s41467-019-1242
 
 * COVID-19 PCR tests date before Dec 31 2020 were considered in the analysis. (To include only those who were unvaccinated)
 * If both individuals in the pairs were infected, `interval` was calculated based on the date of COVID-19 PCR tests.
-* Any pairs with `interval` ≥1 and ≤7 were considered as **secondary attack**.
+* Secondary attack (SA) was defined as both individuals in the pair tested positive for SARS-CoV-2 within one to seven days of the other person. We refenced [this](https://www.nature.com/articles/s41467-022-33328-3). We avoided pairs which tested positive on the same day to reduce the likelihood that both individuals in the pair were infected by the same primary host outside of the pair.
+
 ![662e0dd7-6604-4ca9-b5aa-1218a0921818](https://github.com/tomoconaka/COVID19-HLA/assets/48235580/fd4d5062-7994-4916-b1b7-72cfca52b773)
 * pairs with at least one COVID-19 infection and both of individuals are alive before COVID-19 pandemic.
 
